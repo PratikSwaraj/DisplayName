@@ -8,7 +8,7 @@ export default function App() {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!disableButton) setFull(`${first} ${last}`);
+    setFull(`${first} ${last}`);
   };
 
   return (
