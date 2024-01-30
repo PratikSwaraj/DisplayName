@@ -6,8 +6,6 @@ export default function App() {
   const [last, setLast] = useState("");
   const [full, setFull] = useState("");
 
-  const disableButton = first === "" || last === "";
-
   const submit = (e) => {
     e.preventDefault();
     if (!disableButton) setFull(`${first} ${last}`);
@@ -33,9 +31,7 @@ export default function App() {
           required
         />
         <br />
-        <button type="submit" disabled={disableButton}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
       <br />
       <p>Full Name: {full}</p>
