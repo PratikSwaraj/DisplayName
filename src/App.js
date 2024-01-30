@@ -2,20 +2,21 @@ import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  const submit = (e) => {
-    e.preventDefault();
-    if (!disablebutton) setFull(`${first} ${last}`);
-  };
   const [first, setFirst] = useState("");
-  const [last, setlast] = useState("");
+  const [last, setLast] = useState("");
   const [full, setFull] = useState("");
 
-  const disablebutton = first === "" || last === "";
+  const disableButton = first === "" || last === "";
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!disableButton) setFull(`${first} ${last}`);
+  };
 
   return (
     <div className="App">
       <h1>Full Name Display</h1>
-      <form onClick={submit}>
+      <form onSubmit={submit}>
         <label>First Name:</label>
         <input
           type="text"
@@ -28,11 +29,11 @@ export default function App() {
         <input
           type="text"
           value={last}
-          onChange={(e) => setlast(e.target.value)}
+          onChange={(e) => setLast(e.target.value)}
           required
         />
         <br />
-        <button type="submit" disabled={disablebutton}>
+        <button type="submit" disabled={disableButton}>
           Submit
         </button>
       </form>
